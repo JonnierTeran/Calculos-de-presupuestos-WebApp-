@@ -1,5 +1,5 @@
-<!--Se genera nuestro formulario Angular
-Le asignmaor un Locale Reference el cual lo identifica como un ngForm-->
+<!--Se genera nuestro formulario  reactivo Angular
+Creamos un formGroup-->
 <br>
 <form [formGroup]="Registro" (ngSubmit)="ejecutar()">
     <div class="agregar">
@@ -23,7 +23,7 @@ Le asignmaor un Locale Reference el cual lo identifica como un ngForm-->
         <!--Se Define el input del formulario para la descripcion
           Se le aplican unos estilos css basados en una condicion por medio de ngClass
           Se enlaza a una propiedad o atribbuto por medio de two Way binding
-          es requerido y se aplica local Reference de tipo ngModel para validacion-->
+          es requerido y se aplica FormcontrolName para validacion-->
         <input
           [ngClass]="{ redfocus: Tipo == 'ingreso' }"
           [ngClass]="{ Bluefocus: Tipo == 'egreso' }"
@@ -39,7 +39,7 @@ Le asignmaor un Locale Reference el cual lo identifica como un ngForm-->
         <!--Se Define el input del formulario para el valor
           Se le aplican unos estilos css basados en una condicion por medio de ngClass
           Se enlaza a una propiedad o atribbuto por medio de two Way binding
-          es requerido y se aplica local Reference de tipo ngModel para validacion-->
+          es requerido y se aplica FormcontrolName para validacion-->
         <input
           [ngClass]="{ redfocus: Tipo == 'ingreso' }"
           [ngClass]="{ Bluefocus: Tipo == 'egreso' }"

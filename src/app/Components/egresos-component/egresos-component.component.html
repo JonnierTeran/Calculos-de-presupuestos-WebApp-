@@ -1,0 +1,36 @@
+<div class="egreso">
+
+    <!--Encabezado del componente-->
+    <h2 class="egreso_titulo">Egresos</h2>
+       
+    <!--Si no hay registros de ingresos, se muestra este mensaje de instruccion-->
+    <div *ngIf="Egresos.length == 0 ">
+        <hr>
+        <h4>Aun no se registran acciones de Egresos</h4>
+        <hr>
+        <h4>Para iniciar Registre un Egreso Por favor!</h4>
+        <hr>
+        </div>
+    
+        <!--Se recorre el arreglo de InfoEgresos por medio de la directiva
+        ngFor mostrando su Descripcion, valor, porcentaje  y Opcion de eliminar-->
+        <div class="elemento limpiarEstilos" *ngFor="let Egresos of Egresos; index as i" >
+            
+              <!--Descripcion de un Egreso-->
+            <div class="elemento_descripcion">{{Egresos.getDescription()}}</div>
+            <div class="right limpiarEstilos">
+
+                 <!--Valor de un Egreso formateado con el pipe de currency-->
+                <div class="elemento_valor" style="cursor:pointer">- {{Egresos.getValue()|currency:'COL':'$ ':'1.2-2' }}</div>
+               
+                <!--Mostramos el porcentaje usando interpolacion y enviando el indice y le damos formato con un pipe-->
+                <div class="elemento_porcentaje">{{PorcentajeEgreso(i)| percent}}</div>
+               
+                  <!--Boton eliminar un ingreso, el cual envia por el evento click el indice-->
+                <div class="elemento_eliminar">
+                    <button class="elemento_eliminar--btn" (click)="Delete(i)">X</button>
+                </div>
+            </div>
+        </div>
+
+</div>

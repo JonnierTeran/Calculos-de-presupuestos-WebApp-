@@ -1,0 +1,74 @@
+<!--Se genera nuestro formulario Angular
+Le asignmaor un Locale Reference el cual lo identifica como un ngForm-->
+<br>
+<form [formGroup]="Registro" (ngSubmit)="ejecutar()">
+    <div class="agregar">
+      <div class="agregar_contenedor">
+        
+        <!--Se aplica el evento Change el cual retorna el evento
+          que lleva la informacion seleccionada en el Select
+          Ademas se le aplican unos estilos Css basados en una condicion
+          por medio del ngClas-->
+        <select
+          (change)="TipoOp($event)"
+          class="agregar_tipo"
+          [ngClass]="{ redfocus: Tipo == 'ingreso' }"
+          [ngClass]="{ Bluefocus: Tipo == 'egreso' }"
+        >
+        <option value="">Opciones</option>
+          <option value="ingreso">+ Ingreso</option>
+          <option value="egreso">- Egreso</option>
+        </select>
+  
+        <!--Se Define el input del formulario para la descripcion
+          Se le aplican unos estilos css basados en una condicion por medio de ngClass
+          Se enlaza a una propiedad o atribbuto por medio de two Way binding
+          es requerido y se aplica local Reference de tipo ngModel para validacion-->
+        <input
+          [ngClass]="{ redfocus: Tipo == 'ingreso' }"
+          [ngClass]="{ Bluefocus: Tipo == 'egreso' }"
+          type="text"
+          class="agregar_descripcion"
+          placeholder="Registrar {{Tipo}}"
+          name="DescriptionInput"
+          formControlName="Description"
+          required
+        />
+        
+  
+        <!--Se Define el input del formulario para el valor
+          Se le aplican unos estilos css basados en una condicion por medio de ngClass
+          Se enlaza a una propiedad o atribbuto por medio de two Way binding
+          es requerido y se aplica local Reference de tipo ngModel para validacion-->
+        <input
+          [ngClass]="{ redfocus: Tipo == 'ingreso' }"
+          [ngClass]="{ Bluefocus: Tipo == 'egreso' }"
+          type="number"
+          name="ValueInput"
+          class="agregar_valor"
+          placeholder="Valor"
+          formControlName="Value"
+          required
+        />
+  
+        <!--Boton de typo submit al cual se le aplican stilos css segun una condicion
+        por medio de ngClass-->
+        <button
+          type="submit"
+          class="agregar_btn"
+          [ngClass]="{ red: Tipo == 'ingreso' }"
+          [ngClass]="{ Blue: Tipo == 'egreso' }"
+          [disabled]="!Registro.valid"
+          >💾</button>
+        <br /><br />
+  
+        <!--Span de alerta cuando los campos no son validos-->
+        <span
+        *ngIf="Registro.touched && !Registro.valid"
+          class="Alert">Llenar Todos los Campos correctamente</span>
+      </div>
+    </div>
+  </form>
+  
+ 
+  

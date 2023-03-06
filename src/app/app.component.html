@@ -1,0 +1,48 @@
+<!--Cabecera de la aplicacion 
+    *Visualizar Presupuesto -Ingreso Total -Egreso Total - Porcentaje de egreso respecto al egreso
+Recibe por property Binding e Input los valores del ingreso, egreso , presupuesto , porcentaje
+-->
+<app-cabecera
+[Ingreso]="getIngresoTotal()"
+[Egresos]="getEgresoTotal()"
+[Presupuesto]="getPresupuestoTotal()"
+[Percent]="getPorcentajeEgreso()"
+></app-cabecera>
+
+<!----------------------------------------------------------------------------------------------------------------->
+
+
+
+<div class="container">
+    <app-form-registro-component></app-form-registro-component>
+    
+    <div class="contenedor limpiarEstilos" id="EspacioFinal">
+        <!--Componente para ver ingresos-->
+        
+        <app-ingresos-component></app-ingresos-component>
+      
+      
+        <!--Componente para ver Egresos y recibe el ingreso total
+        Para calcular el porcentaje que representa cada Egreso sobre el ingreso total-->
+        <app-egresos-component 
+        [IngresoT]="getIngresoTotal()"
+        ></app-egresos-component>
+       
+    </div>
+
+    <!--Componentes para Ver Todos los ingresos Registrados Y Egresos-->
+    
+    <footer>
+    <br>
+    Footer
+    © 2023 Jonnier Teran, Ing.
+    Footer navigation
+    Terms
+    Privacy
+    Security
+    Status
+    Docs
+    Contact Jonnierteranmorales@gmail.com
+<br>
+</footer>
+</div>

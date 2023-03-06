@@ -1,0 +1,55 @@
+<div class="cabecero">
+    <div class="presupuesto">
+  
+      <!--Encabezado de la Pagina-->
+      <div class="presupuesto_titulo">Presupuesto Disponible</div>
+  
+      <div class="presupuesto_valor">
+  
+      <!--Se Agrega el presupuesto por medio de Binding por interpolacion
+      Y le damos formatos con el pipe de Currency-->
+        {{ Presupuesto | currency: "COL":"$ ":"1.2-2" }}
+      </div>
+  
+      <div class="presupuesto_ingreso limpiarEstilos">
+  
+        <!--Titulamos el ingreso-->
+        <div class="presupuesto_ingreso--texto">Ingresos</div>
+        <div class="right">
+  
+          <div class="presupuesto_ingreso--valor">
+  
+            <!--Mostrmos el ingreso Total por medio de Bindin por interpolacion
+            y le agragamos formatos con el pipe de currency-->
+            + {{ Ingresos | currency: "COL":"$ ":"1.2-2" }}
+  
+          </div>
+          <div class="presupuesto_ingreso--porcentaje">&nbsp;</div>
+        </div>
+      </div>
+  
+      <div class="presupuesto_egreso limpiarEstilos">
+  
+        <!--Titulamos el Egreso-->
+        <div class="presupuesto_egreso--text">Egresos</div>
+  
+        <div class="right limpiarEstilos">
+          <div class="presupuesto_egreso--valor">
+  
+            <!--Mostrmos el Egreso Total por medio de Bindin por interpolacion
+            y le agragamos formatos con el pipe de currency-->
+            - {{ Egresos | currency: "COL":"$ ":"1.2-2" }}
+  
+          </div>
+          <div class="presupuesto_egreso--porcentaje">
+  
+            <!--Mostramos el porcentaje que reprecenta el egreso 
+            sobre el ingreso y le damos formato con el pipe de percent-->
+            {{ porcentaje | percent }}
+             
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
